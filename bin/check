@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+#
+# Perform some checks to ensure code quality
+# ------------------------------------------
+
+printf "\nCheck projects code quality\n===========================\n"
+
+
+printf "\n\nChecking composer file\n----------------------\n"
+composer validate --strict
+
+
+printf "\n\nChecking platform requirements\n------------------------------\n"
+composer check-platform-reqs
+
+
+printf "\n\nChecking line endings\n---------------------\n"
+if git rev-parse --git-dir > /dev/null 2>&1; then
+    # this is a valid GIT repository
+    printf "CRLF files: "
+    git diff master --name-only | xargs file | grep CRLF | wc -l
+else
+    printf "CRLF can't be executed no git repository!\n"
+fi
+
+printf "\n\nPHP Mess Detector\n-----------------\n"
+vendor/phpmd/phpmd/src/bin/phpmd src/ text phpmd_ruleset.xml
+
+
+printf "\n\nStatic Analyzer\n---------------\n"
+vendor/bin/phpstan analyse --configuration=phpstan-sf.neon
+
+
+printf "\nUnit Tests\n----------\n"
+vendor/phpunit/phpunit/phpunit tests/ -v

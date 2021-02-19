@@ -1,0 +1,7 @@
+/nbproject/
+/.idea/
+/.phpunit.result.cache
+/composer.lock
+/tests/data/game/success/sessions/*
+/sessions/*
+/vendor/*

@@ -1,0 +1,30 @@
+{
+  "name": "dollmetzer/ifengine",
+  "description": "PHP engine for interactive fiction",
+  "type": "library",
+  "license": "GPL-3.0-only",
+  "version": "3.0.6",
+  "authors": [
+    {
+      "name": "Dirk Ollmetzer",
+      "email": "dirk.ollmetzer@ollmetzer.com",
+      "homepage": "http://www.ollmetzer.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "dollmetzer\\ifengine\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.4",
+    "psr/container": "1.0.*",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.5",
+    "phpmd/phpmd": "^2.9",
+    "phpstan/phpstan": "^0.12",
+    "phpunit/php-code-coverage": "^7.0.12"
+  }
+}

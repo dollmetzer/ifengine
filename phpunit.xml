@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit
+    colors="true"
+    bootstrap="tests/bootstrap.php"
+    forceCoversAnnotation="true"
+>
+    <testsuites>
+        <testsuite name="ifengine">
+            <directory>tests/unitTests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory>src</directory>
+            <file>./coverage.txt</file>
+        </whitelist>
+    </filter>
+    <php>
+        <const name="UNIT_TEST" value='true' />
+        <const name="OUTPUT_MAX_LINES" value='10' />
+    </php>
+</phpunit>

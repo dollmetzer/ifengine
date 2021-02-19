@@ -1,0 +1,23 @@
+includes:
+#	- vendor/phpstan/phpstan-symfony/extension.neon
+#	- vendor/phpstan/phpstan-symfony/rules.neon
+parameters:
+	level: 6
+	checkMissingIterableValueType: false
+	bootstrapFiles:
+	    - %rootDir%/../autoload.php
+	    - %rootDir%/../../public/bootstrap.php
+	paths:
+		- src
+		- tests
+	excludes_analyse:
+		- tests/tmp/*
+		- tests/*/Example*.php
+		- tests/*/console_application_loader.php
+		- tests/*/envelope_all.php
+		- tests/*/header_bag_get.php
+		- tests/*/kernel_interface.php
+		- tests/*/request_get_content.php
+		- tests/*/request_get_session.php
+		- tests/*/serializer.php
+		- tests/*/denormalizer.php
