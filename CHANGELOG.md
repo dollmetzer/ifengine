@@ -1,5 +1,6 @@
 CHANGELOG
 =========
+26.02.2021 Worked on Actions
 18.02.2021 Added Doku, Voice output and the first two actions.
 17.02.2021 Ongoing Refactoring. Tests green.
 16.02.2021 Ongoing Refactoring. Added Tests for GameState

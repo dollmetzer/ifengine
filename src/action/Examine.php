@@ -23,10 +23,20 @@ class Examine extends Action implements ActionInterface
     private function getObjectDescription($object) {
         $item = $this->gameState->getObject($object['index']);
         $player = $this->gameState->getObject('_player');
-        if(($player['room'] != $item['room']) && ('_player' != $item['room'])) {
+        if (($player['room'] != $item['room']) && ('_player' != $item['room'])) {
             return 'Das ist hier nicht.';
         }
-        return $item['description'];
+        $answer = $item['description'];
+
+        $items = $this->gameState->getObjectsInRoom($object['index']);
+        if (!empty($items)) {
+            $answer .= "\nHier ist folgendes: \n";
+            foreach($items as $item) {
+                $answer .= $item['name'];
+            }
+        }
+
+        return $answer;
     }
 
     private function getRoomDescription() {

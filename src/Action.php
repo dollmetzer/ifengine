@@ -35,14 +35,21 @@ class Action
      * @var array
      */
     protected $words;
+
     /**
      * @var GameState
      */
     protected $gameState;
 
+    /**
+     * @var mixed
+     */
+    protected $player;
+
     public function __construct(array $words, GameState &$gameState)
     {
         $this->words = $words;
         $this->gameState = &$gameState;
+        $this->player = $gameState->getObject('_player');
     }
 }
